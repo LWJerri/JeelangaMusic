@@ -53,9 +53,20 @@ Lancer le bot
 ```bash
 npm start
 ```
+
+### Optional packages
+- zlib-sync for WebSocket data compression and inflation (`npm install zlib-sync`)
+- erlpack for significantly faster WebSocket data (de)serialisation (`npm install discordapp/erlpack`)
+- One of the following packages can be installed for faster voice packet encryption and decryption:
+  - sodium (`npm install sodium`)
+  - libsodium.js (`npm install libsodium-wrappers`)
+- bufferutil for a much faster WebSocket connection (`npm install bufferutil`)
+- utf-8-validate in combination with bufferutil for much faster WebSocket processing (`npm install utf-8-validate`)
+
 ## troubleshooting
-Si vous n'arrivez pas à installer certains module vous pouvez retirer les modules `bufferutil`, `sodium`, `utf-8-validate`, `zlib-sync`, `erlpack` du [package.json](https://github.com/Shaynlink/mika/blob/master/package.json)
  - Erreur d'installation avec sodium : https://www.npmjs.com/package/sodium#install
+ - Erreur d'installation avec @discordjs/opus : `npm i -g node-gyp node-pre-gyp` else https://www.npmjs.com/package/node-gyp#installation
  - A voir aussi : https://www.npmjs.com/package/node-gyp#installation
+ - Erreur FFMPEG NOT FOUND: https://www.youtube.com/channel/UCUjo_IKa9Cqkx_x-rMly8MA/search?query=ffmpeg (lire commentaire épingler)
 
 
