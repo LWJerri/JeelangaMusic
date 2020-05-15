@@ -8,6 +8,7 @@ const config = require('./config');
 const ytdl = require('ytdl-core');
 const moment = require('moment');
 const {JpopClient, KpopClient} = require('./client');
+const htmlEntitiesDecoder = require('html-entities-decoder');
 
 client.music = {};
 client.jpop = {
@@ -74,6 +75,11 @@ client.on('message', async (message) => {
     if (youtube.isAxiosError) {
       return message.channel.send(`ERROR: code http ${youtube.status}`);
     };
+    // eslint-disable-next-line guard-for-in
+    for (const key in youtube.items) {
+      youtube.items[key].snippet.title =
+        htmlEntitiesDecoder(youtube.items[key].snippet.title);
+    };
     const content = {
       embed: {
         title: 'Liste de musique',
@@ -111,6 +117,7 @@ client.on('message', async (message) => {
         song.time = JSON.parse(JSON.stringify(info)).length_seconds*1000;
         song.request = message.member;
         client.music[message.guild.id].queue.push(song);
+        client.music[message.guild.id].type = 'player';
         if (client.music[message.guild.id].queue.length > 1) {
           message.channel.send({
             embed: {
@@ -121,9 +128,12 @@ client.on('message', async (message) => {
               },
             },
           });
+          if (!client.music[message.guild.id].dispatcher) {
+            play(message);
+          }
         } else {
           if (client.music[message.guild.id].queue <= 1) {
-            client.music[message.guild.id].dispatcher = 0;
+            client.music[message.guild.id].index = 0;
           };
           play(message);
         };
@@ -607,6 +617,10 @@ async function play(message) {
   if (!client.music[message.guild.id].queue ||
     client.music[message.guild.id].queue.length < 1) {
     return message.channel.send('Il n\'y a pas de musique dans la playlist');
+  };
+  if (!client.music[message.guild.id].queue[
+      client.music[message.guild.id].index]) {
+    client.music[message.guild.id].index = 0;
   };
   client.music[message.guild.id].dispatcher =
   client.music[message.guild.id].connection.play(

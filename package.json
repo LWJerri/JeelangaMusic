@@ -38,6 +38,7 @@
     "eslint-config-google": "^0.14.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.1",
+    "html-entities-decoder": "^1.0.0",
     "moment": "^2.25.3",
     "sodium": "^3.0.2",
     "utf-8-validate": "^5.0.2",
