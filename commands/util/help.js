@@ -4,7 +4,7 @@ const {MessageEmbed} = require('discord.js');
 module.exports = {
     name: 'help',
     description: 'display commands',
-    usage: 'help (commands)',
+    usage: 'help',
     category: 'util',
     aliases: ['h'],
     botPerm: ['MANAGE_MESSAGES', 'EMBED_LINKS'],
