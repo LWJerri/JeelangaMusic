@@ -1,0 +1,34 @@
+{
+  "name": "mika",
+  "version": "0.1.0",
+  "description": "[![GitHub license](https://img.shields.io/github/license/Shaynlink/mika.svg)](https://github.com/Shaynlink/mika/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Shaynlink/mika/total.svg)](https://GitHub.com/Shaynlink/mika/releases/) [![GitHub stars](https://img.shields.io/github/stars/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/stargazers/) [![GitHub watchers](https://img.shields.io/github/watchers/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/watchers/) [![GitHub issues](https://img.shields.io/github/issues/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/node-anemy/issues?q=is%3Aissue+is%3Aclosed)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shaynlink/mika.git"
+  },
+  "author": "shaynlink <me@shaynlink.fr> (https://ohori.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shaynlink/mika/issues"
+  },
+  "homepage": "https://github.com/Shaynlink/mika#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "axios": "^0.19.2",
+    "bufferutil": "^4.0.1",
+    "discord.js": "^12.2.0",
+    "erlpack": "github:discordapp/erlpack",
+    "html-entities-decoder": "^1.0.0",
+    "klaw": "^3.0.0",
+    "moment": "^2.27.0",
+    "sodium": "^3.0.2",
+    "utf-8-validate": "^5.0.2",
+    "ytdl-core": "^2.1.7",
+    "zlib-sync": "^0.1.7"
+  }
+}
