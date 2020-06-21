@@ -1,26 +1,25 @@
 # mika
 [![GitHub license](https://img.shields.io/github/license/Shaynlink/mika.svg)](https://github.com/Shaynlink/mika/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Shaynlink/mika/total.svg)](https://GitHub.com/Shaynlink/mika/releases/) [![GitHub stars](https://img.shields.io/github/stars/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/stargazers/) [![GitHub watchers](https://img.shields.io/github/watchers/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/watchers/) [![GitHub issues](https://img.shields.io/github/issues/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/node-anemy/issues?q=is%3Aissue+is%3Aclosed)
 
-mika est un simple bot musique traduit en français.
+Mika is a simple Discord bot music
 
 ## Commandes
 prefix: **m!**
 | Commande | Description |
 | ------ | ------ |
-| play | Joue de la musique |
-| destroy | Arrête de joué de la musique |
-| leave | quitte le salon |
-| loop | Répete la musique |
-| muteindicator | Arrête d'envoyer des messages à chaque fin de musique |
-| nowplaying | Affiche les informations de la musique joué |
-| pause | Met en pause la musique |
-| queue | affiche la playlist |
-| resume | Reprend la musique |
-| skip | Passe à la musique suivante |
-| skipto | Passe à la musique selectionné |
-| volume | affiche ou change le volume |
-| jpop | Radio jpop by [listen.moe](http://listen.moe/) |
-| kpop | Radio kpop by [listen.moe](http://listen.moe/) |
+| play | play a youtube video |
+| destroy | destroy stream and clear queue |
+| leave | leave channel |
+| loop | repeat playlist or song |
+| nowplaying | Display actual music |
+| pause | set stream on pause |
+| queue | display songs |
+| resume | set stream on resume |
+| skip | skip music |
+| skipto | skipc music |
+| volume | change volume |
+| remvoe | remove music from playlist |
+| seek | set seek |
 
 #### play
 [![exemple play](https://github.com/Shaynlink/mika/blob/master/assets/exemple/mika-exemple-1.png)](https://github.com/Shaynlink/mika)
