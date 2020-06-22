@@ -18,7 +18,7 @@ prefix: **m!**
 | skip | skip music |
 | skipto | skipc music |
 | volume | change volume |
-| remvoe | remove music from playlist |
+| remove | remove music from playlist |
 | seek | set seek |
 
 #### play
