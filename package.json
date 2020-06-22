@@ -20,10 +20,17 @@
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "axios": "^0.19.2",
+    "bufferutil": "^4.0.1",
     "discord.js": "^12.2.0",
+    "erlpack": "github:discordapp/erlpack",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.4",
     "html-entities-decoder": "^1.0.0",
     "klaw": "^3.0.0",
     "moment": "^2.27.0",
-    "ytdl-core": "^2.1.7"
+    "sodium": "^3.0.2",
+    "utf-8-validate": "^5.0.2",
+    "ytdl-core": "^2.1.7",
+    "zlib-sync": "^0.1.7"
   }
 }
