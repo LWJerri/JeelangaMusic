@@ -18,7 +18,7 @@ prefix: **m!**
 | skip | skip music |
 | skipto | skipc music |
 | volume | change volume |
-| remvoe | remove music from playlist |
+| remove | remove music from playlist |
 | seek | set seek |
 
 #### play
@@ -30,7 +30,7 @@ prefix: **m!**
 #### help
 [![exemple play](https://github.com/Shaynlink/mika/blob/master/assets/exemple/mika-exemple-3.png)](https://github.com/Shaynlink/mika)
 
-## Installation
+## Install
 
 ```bash
 git clone https://github.com/Shaynlink/mika.git
@@ -38,17 +38,17 @@ cd mika
 npm install
 ```
 
-Créer un fichier `credentials.js`
+Create a `credentials.js` file
 ```js
 module.exports = {
-  DISCORD_TOKEN: '[Votre token]',
-  YOUTUBE_TOKEN: '[Votre token]',
+  DISCORD_TOKEN: '[Your token]',
+  YOUTUBE_TOKEN: '[Your token]',
 };
 ```
  - discord token: https://discord.com/developers/applications
  - youtube token: https://developers.google.com/youtube/v3/getting-started
 
-Lancer le bot
+Start bot
 ```bash
 npm start
 ```
@@ -63,9 +63,9 @@ npm start
 - utf-8-validate in combination with bufferutil for much faster WebSocket processing (`npm install utf-8-validate`)
 
 ## troubleshooting
- - Erreur d'installation avec sodium : https://www.npmjs.com/package/sodium#install
- - Erreur d'installation avec @discordjs/opus : `npm i -g node-gyp node-pre-gyp` else https://www.npmjs.com/package/node-gyp#installation
- - A voir aussi : https://www.npmjs.com/package/node-gyp#installation
- - Erreur FFMPEG NOT FOUND: https://www.youtube.com/channel/UCUjo_IKa9Cqkx_x-rMly8MA/search?query=ffmpeg (lire commentaire épingler)
+ - Install error sodium : https://www.npmjs.com/package/sodium#install
+ - Install error @discordjs/opus : `npm i -g node-gyp node-pre-gyp` else https://www.npmjs.com/package/node-gyp#installation
+ - Also view : https://www.npmjs.com/package/node-gyp#installation
+ - Error FFMPEG NOT FOUND (French): https://www.youtube.com/channel/UCUjo_IKa9Cqkx_x-rMly8MA/search?query=ffmpeg (lire commentaire épingler)
 
 
