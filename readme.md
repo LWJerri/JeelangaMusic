@@ -46,7 +46,7 @@ module.exports = {
 };
 ```
  - discord token: https://discord.com/developers/applications
- - youtube token: https://developers.google.com/youtube/v3/getting-started
+ - youtube token: https://developers.google.com/youtube/v3/getting-started#before-you-start
 
 Start bot
 ```bash
