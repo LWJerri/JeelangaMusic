@@ -2,7 +2,7 @@
 const {Client, Collection} = require('discord.js');
 const klaw = require('klaw');
 const {sep, resolve, parse} = require('path');
-// const credentials = require('./credentials');
+const credentials = require('./credentials');
 const client = new Client();
 
 client.commands = new Collection();
@@ -49,10 +49,4 @@ klaw(resolve(__dirname, 'events')).on('data', (item) => {
     );
 });
 
-client.login(); // token is in process.env.DISCORD_TOKEN
-
-
-/** HEROKU PART */
-const http = require('http');
-
-http.createServer((req, res) => res.writeHead(200).write('Hello World!')).listen(process.env.PORT || 3000, '0.0.0.0');
+client.login(credentials.DISCORD_TOKEN); // token is in process.env.DISCORD_TOKEN

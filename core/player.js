@@ -1,5 +1,5 @@
 'use strict';
-// const credentials = require('./../credentials');
+const credentials = require('./../credentials');
 const axios = require('axios');
 const {MessageEmbed} = require('discord.js');
 const ytdl = require('ytdl-core');
@@ -76,7 +76,7 @@ module.exports.hasPermission = function(client, message) {
  * @return {Promise<Object>}
  */
 module.exports.getSongs = async function(query) {
-    return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=${process.env.YOUTUBE_TOKEN}&q=${encodeURI(query)}`).then((response) => response.data).catch((error) => error);
+    return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=${credentials.YOUTUBE_TOKEN}&q=${encodeURI(query)}`).then((response) => response.data).catch((error) => error);
 };
 
 module.exports.parseSeconde = function(seconds) {
@@ -143,9 +143,9 @@ module.exports.play = async function (client, message, seek = 0) {
             this.play(client, message);
           } else if (player.loop === 'on') {
             if (player.index === player.queue.length - 1) {
-              palyer.index = 0;
+              player.index = 0;
             } else {
-              palyer.index++;
+              player.index++;
             };
             this.play(client, message);
           } else if (player.loop === 'once') {
