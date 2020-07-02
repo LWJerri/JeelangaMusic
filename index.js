@@ -2,7 +2,7 @@
 const {Client, Collection} = require('discord.js');
 const klaw = require('klaw');
 const {sep, resolve, parse} = require('path');
-const credentials = require('./credentials');
+const credentials = require('./credentials-exemple');
 const client = new Client();
 
 client.commands = new Collection();
