@@ -38,13 +38,8 @@ cd mika
 npm install
 ```
 
-Create a `credentials.js` file
-```js
-module.exports = {
-  DISCORD_TOKEN: '[Your token]',
-  YOUTUBE_TOKEN: '[Your token]',
-};
-```
+in [credentials.js](https://github.com/Shaynlink/mika/blob/master/credentials.js), change DISCORD_TOKEN value by the token of your bot, and YOUTUBE_TOKEN value by your Youtube Data v3 API KEY.
+
  - discord token: https://discord.com/developers/applications
  - youtube token: https://developers.google.com/youtube/v3/getting-started#before-you-start
 
