@@ -32,5 +32,5 @@ module.exports = (client) => {
         });
     });
 
-    app.listen(client.config.port, '0.0.0.0', () => console.log('server listening on https://localhost:8080'))
+    app.listen(client.config.port, '0.0.0.0', () => console.log(`server listening on https://localhost:${client.config.port}`))
 };
