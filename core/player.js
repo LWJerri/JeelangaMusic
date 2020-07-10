@@ -105,13 +105,17 @@ module.exports.play = async function (client, message, seek = 0) {
         };
       };
     };
+    const msgDl = await message.channel.send('Music downloading 📥');
     player.dispatcher = player.connection.play(
         await ytdl(`https://www.youtube.com/watch?v=${player.queue[player.index].id.videoId}`, {
           filter: 'audioonly',
           quality: 'highestaudio',
         }), {
           volume: player.volume,
-          highWaterMark: 20,
+          highWaterMark: 100,
+          fec: true,
+          plp: 30,
+          bitrate: 64,
           seek,
         },
     );
@@ -153,11 +157,12 @@ module.exports.play = async function (client, message, seek = 0) {
             player.index = player.index;
           };
         });
-    let r;
+    let r = 0;
     player.dispatcher.on('speaking', (s) => {
       if (s === r) return;
       r=s;
-      player.isPlaying = r === 1 ? true : false;
+      msgDl.delete({timeout: 1000});
+      player.isPlaying = r === 1 ? true : false
     });
     player.dispatcher.on('error',async (err) => {
         clearInterval(heatBeat);

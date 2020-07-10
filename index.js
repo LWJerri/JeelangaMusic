@@ -10,6 +10,8 @@ client.aliases = new Collection();
 client.music = {};
 client.config = require('./config');
 
+require('./server/app')(client);
+
 function loadCommand(commandPath) {
     try {
         const command = require(commandPath);

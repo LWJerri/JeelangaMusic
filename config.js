@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  prefix: 'm!',
+  prefix: 'p!',
+  port: 8080,
 };
