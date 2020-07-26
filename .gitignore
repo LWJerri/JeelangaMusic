@@ -7,3 +7,6 @@ credentials.js
 # log
 *.log
 *.lock
+
+# IDE
+.idea

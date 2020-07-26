@@ -94,17 +94,21 @@ module.exports.parseSeconde = function(seconds) {
 module.exports.play = async function (client, message, seek = 0) {
     const player = this.initPlayer(client, message.guild.id);
     if (!player.queue || player.queue.length < 1) {
-      return message.channel.send(`The playlist is empty`);
+        console.log('suite x000');
+        return message.channel.send(`Playlist is empty`);
     };
     if (!player.queue[player.index]) {
         player.index = player.queue.length;
       if (!player.queue[player.index]) {
         player.index = 0;
         if (!player.queue[player.index]) {
-          return message.channel.send(`The playlist is empty`);
+            console.log('suite x001');
+            return message.channel.send(`Playlist is empty`);
         };
       };
     };
+    console.log('suite');
+    console.log(player);
     const msgDl = await message.channel.send('Music downloading 📥');
     player.dispatcher = player.connection.play(
         await ytdl(`https://www.youtube.com/watch?v=${player.queue[player.index].id.videoId}`, {
@@ -161,8 +165,8 @@ module.exports.play = async function (client, message, seek = 0) {
     player.dispatcher.on('speaking', (s) => {
       if (s === r) return;
       r=s;
-      msgDl.delete({timeout: 1000});
-      player.isPlaying = r === 1 ? true : false
+      msgDl.delete({timeout: 1000}).catch((er) => {/* Message is already delete */});
+      player.isPlaying = r === 1 ? true : false;
     });
     player.dispatcher.on('error',async (err) => {
         clearInterval(heatBeat);
