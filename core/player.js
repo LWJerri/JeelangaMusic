@@ -101,7 +101,7 @@ module.exports.play = async function (client, message, seek = 0) {
       if (!player.queue[player.index]) {
         player.index = 0;
         if (!player.queue[player.index]) {
-          return message.channel.send(`The playlist is empty`);
+          return message.channel.send(`Playlist is empty`);
         };
       };
     };
@@ -161,8 +161,8 @@ module.exports.play = async function (client, message, seek = 0) {
     player.dispatcher.on('speaking', (s) => {
       if (s === r) return;
       r=s;
-      msgDl.delete({timeout: 1000});
-      player.isPlaying = r === 1 ? true : false
+      msgDl.delete({timeout: 1000}).catch((er) => {/* Message is already delete */});
+      player.isPlaying = r === 1 ? true : false;
     });
     player.dispatcher.on('error',async (err) => {
         clearInterval(heatBeat);

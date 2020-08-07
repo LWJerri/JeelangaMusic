@@ -27,7 +27,10 @@ module.exports = {
 
       const youtube = await corePlayer.getSongs(args.join(' '));
       if (youtube.error) return message.channel.send(youtube.error.message, {code: 'js'});
-      if (youtube.isAxiosError) return message.channel.send(`ERROR: code http ${youtube.status}`);
+      if (youtube.isAxiosError) {
+        console.log(youtube.response.data);
+        return message.channel.send(youtube.response.data.error.status, {code: 'js'});
+      }
 
       for (const key in youtube.items) {
         youtube.items[key].snippet.title = htmlEntitiesDecoder(youtube.items[key].snippet.title);
@@ -44,7 +47,7 @@ module.exports = {
           time: 20000,
         });
         collector.on('collect', async (msgCollected) => {
-          const choice = msgCollected.content.trim().split()[0];
+          const choice = msgCollected.content.trim().split(/ +/g)[0];
           if (choice.toLowerCase() === 'cancel') {
             return collector.stop('STOPPED');
           };
