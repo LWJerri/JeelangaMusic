@@ -16,27 +16,28 @@ module.exports = {
     enabled: true,
     execute: async function(client, message, args) {
         if (!message.member.voice.channel) return message.reply('💢');
+        const index = parseInt(args.join(' '))-1;
         const player = corePlayer.initPlayer(client, message.guild.id);
         if (!player.dispatcher) return message.channel.send(`I don't play a music`);
-        if (!args.join('') || isNaN(args.join(''))) {
+        if (!index || isNaN(index)) {
             return message.channel.send(`You must enter a number value !`);
         };
-        if (args.join('') > player.queue.length - 1) return message.react('💢');
+        if (index > player.queue.length - 1) return message.react('💢');
         if (!corePlayer.hasPermission(client, message)) {
             const call = await corePlayer.callRequest(message, new MessageEmbed(), {
-                required: `Require {{mustVote}} votes for remove ${player.queue[args.join('')].snippet.title}`,
-                complete: `Vote completed, you remove ${player.queue[args.join('')].snippet.title} from the playlist`,
+                required: `Require {{mustVote}} votes for remove ${player.queue[index].snippet.title}`,
+                complete: `Vote completed, you remove ${player.queue[index].snippet.title} from the playlist`,
                 content: `Vote {{haveVoted}}/{{mustVote}}`,
             });
             if (call) {
                 if (!player.dispatcher) return message.channel.send(`I don't play a music`);
-                if (player.index > args.join('')) player.index--;
+                if (player.index > index) player.index--;
                 player.queue.splice(args.join('', 1));
             } else {
                 return message.channel.send(`You don't set stream to resume`);
             };
         } else {
-            if (player.index > args.join('')) player.index--;
+            if (player.index > index) player.index--;
             player.queue.splice(args.join('', 1));
         };
     },
