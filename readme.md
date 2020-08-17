@@ -32,16 +32,23 @@ prefix: **m!**
 
 ## Install
 
-```bash
+```sh
 git clone https://github.com/Shaynlink/mika.git
 cd mika
 npm install
 ```
 
-in [credentials.js](https://github.com/Shaynlink/mika/blob/master/credentials.js), change DISCORD_TOKEN value by the token of your bot, and YOUTUBE_TOKEN value by your Youtube Data v3 API KEY.
+create [credentials.js](https://github.com/Shaynlink/mika/blob/master/credentials.js) and change DISCORD_TOKEN value by the token of your bot, and YOUTUBE_TOKEN value by your Youtube Data v3 API KEY.
 
  - discord token: https://discord.com/developers/applications
  - youtube token: https://developers.google.com/youtube/v3/getting-started#before-you-start
+
+```js
+module.exports = {
+  DISCORD_TOKEN: '[your crazy token]',
+  YOUTUBE_TOKEN: '[your crazy token]',
+};
+```
 
 Start bot
 ```bash
