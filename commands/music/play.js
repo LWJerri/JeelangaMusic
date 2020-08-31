@@ -33,6 +33,20 @@ const ytdl = require('ytdl-core');
  * @property {snippetObject} snippet
  */
 
+let requestFunc = {};
+
+async function getBasicInfo(args, token) {
+  if (!requestFunc[token]) requestFunc[token] = 0;
+  if (requestFunc[token] > 5) return 'ERROR';
+  requestFunc[token]++;
+  try {
+    return ytdl.getBasicInfo(args);
+  } catch (error) {
+    await new Promise(resolve => setTimeout(resolve, 250));
+    return getBasicInfo(args, token);
+  };
+};
+
 module.exports = {
     name: 'play',
     description: 'Play a music',
@@ -72,7 +86,11 @@ module.exports = {
             },
           },
         };
-        const songData = await ytdl.getBasicInfo(args.join(''));
+        const songData = await getBasicInfo(args.join(''), message.id);
+        delete requestFunc[message.id];
+
+        if (songData == 'ERROR') return message.channel.send('I can\'t play this song');
+
         song.id.videoId = songData.video_id;
         song.snippet.publishedAt = songData.published;
         song.snippet.channelId = songData.author.id;
