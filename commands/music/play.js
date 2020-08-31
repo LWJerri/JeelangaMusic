@@ -116,9 +116,12 @@ module.exports = {
       const youtube = await corePlayer.getSongs(args.join(' '));
       if (youtube.error) return message.channel.send(youtube.error.message, {code: 'js'});
       if (youtube.isAxiosError) {
-        console.log(youtube.response.data);
-        return message.channel.send(youtube.response.data.error.status, {code: 'js'});
+        /**
+         * node v14 youtube?.response?.data?.error?.status
+         */
+        return message.channel.send(youtube.response ? youtube.response.data ? youtube.response.data.error ? youtube.response.data.error.status : 'undefined' : 'undefined' : 'undefined', {code: 'js'});
       };
+
 
       if (youtube.items.length < 1) {
         return message.channel.send('No tracks found !');
