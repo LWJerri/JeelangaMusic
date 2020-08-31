@@ -30,7 +30,11 @@ module.exports = {
       if (youtube.isAxiosError) {
         console.log(youtube.response.data);
         return message.channel.send(youtube.response.data.error.status, {code: 'js'});
-      }
+      };
+
+      if (youtube.items.length < 1) {
+        return message.channel.send('No tracks found !');
+      };
 
       for (const key in youtube.items) {
         youtube.items[key].snippet.title = htmlEntitiesDecoder(youtube.items[key].snippet.title);
