@@ -8,7 +8,6 @@ prefix: **m!**
 | Command | Description |
 | ------ | ------ |
 | play | play a youtube video |
-| destroy | destroy stream and clear queue |
 | leave | leave channel |
 | loop | repeat playlist or song |
 | nowplaying | Display actual music |
