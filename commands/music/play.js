@@ -61,12 +61,12 @@ module.exports = {
     enabled: true,
     execute: async function(client, message, args) {
       if (!message.member.voice.channel) return message.channel.send(`You must connect on the voice channel before !`);
-      if (!corePlayer.hasPermission(client, message)) return message.channel.send(`Do you not have necessery permission`);
 
       const player = corePlayer.initPlayer(client, message.guild.id);
       player.connection = await message.member.voice.channel.join();
 
-      if (!args.join('') && player.queue.length >= 1) return corePlayer.play(client, message);
+      if ((!args.join('') && player.queue.length >= 1) && (!player.dispatcher)) return corePlayer.play(client, message);
+      else if (!args.join('')) return;
 
       if (/http(s):\/\/(www.)?(youtube.[a-z]{0,10}\/((watch\?v=[a-zA-Z0-9]{0,50})|(embed\/[a-zA-Z0-9]{0,50})))|(youtu.be\/{0,50})/.test(args.join(''))) {
         /**
