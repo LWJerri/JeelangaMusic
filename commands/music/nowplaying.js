@@ -2,6 +2,7 @@
 const corePlayer = require('./../../core/player');
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
+const {split} = require('./../../util/Util');
 
 module.exports = {
     name: 'nowplaying',
@@ -25,7 +26,7 @@ module.exports = {
         progressBar[calcul] = '🔘';
         const npEmbed = new MessageEmbed()
             .setTitle('Now playing')
-            .setDescription(`[${player.queue[player.index].snippet.title}](https://www.youtube.com/watch?v=${player.queue[player.index].id.videoId})`)
+            .setDescription(`${split(player.queue[player.index].snippet.description, 1000)}\n[${player.queue[player.index].snippet.title}](https://www.youtube.com/watch?v=${player.queue[player.index].id.videoId})`)
             .setThumbnail(player.queue[player.index].snippet.thumbnails.high.url)
             .addField('Duration', '[`' + progress.minutes() + ':' + progress.seconds() + '`] ' + progressBar.join('') + ' [`' + duration.minutes() + ':' + duration.seconds() + '`]')
         message.channel.send({embed: npEmbed});

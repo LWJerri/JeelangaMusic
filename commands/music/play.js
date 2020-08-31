@@ -39,12 +39,10 @@ async function getBasicInfo(args, token) {
   if (!requestFunc[token]) requestFunc[token] = 0;
   if (requestFunc[token] > 5) return 'ERROR';
   requestFunc[token]++;
-  try {
-    return ytdl.getBasicInfo(args);
-  } catch (error) {
+  return ytdl.getBasicInfo(args).catch(async (err) => {
     await new Promise(resolve => setTimeout(resolve, 250));
     return getBasicInfo(args, token);
-  };
+  });
 };
 
 module.exports = {
