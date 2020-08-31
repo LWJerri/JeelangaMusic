@@ -59,8 +59,8 @@ module.exports = {
           };
           const song = youtube.items[choice - 1];
           collector.stop('PLAY');
-          msg.delete();
-          msgCollected.delete();
+          msg.delete().catch((err) => {/*Message already deleted*/});
+          msgCollected.delete().catch((err) => {/*Message already deleted*/});
           if (song.id.kind === 'youtube#channel') {
             return message.channel.send(`I can't play a video with a channel`);
           };
