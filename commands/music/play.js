@@ -4,6 +4,35 @@ const htmlEntitiesDecoder = require('html-entities-decoder');
 const {MessageEmbed, MessageCollector} = require('discord.js');
 const ytdl = require('ytdl-core');
 
+/**
+ * @typedef snippetObject
+ * 
+ * @property {string} publishedAt
+ * @property {string} channelId
+ * @property {string} title
+ * @property {string} description
+ * @property {{default: {url: string}, medium: {url: string}, high: {url: string}}} thumbnails
+ * @property {string} channelTitle
+ * @property {string} liveBroadcastContent
+ * @property {string} publishTime
+ */
+
+/**
+ * @typedef idObject
+ * 
+ * @property {string} kind
+ * @property {string} videoId
+ */
+
+/**
+ * @typedef SongObject
+ * 
+ * @property {string} kind
+ * @property {string} etag
+ * @property {{kind: string, videoId: string}} id
+ * @property {snippetObject} snippet
+ */
+
 module.exports = {
     name: 'play',
     description: 'Play a music',
@@ -24,6 +53,65 @@ module.exports = {
       player.connection = await message.member.voice.channel.join();
 
       if (!args.join('') && player.queue.length >= 1) return corePlayer.play(client, message);
+
+      if (/http(s):\/\/(www.)?(youtube.[a-z]{0,10}\/((watch\?v=[a-zA-Z0-9]{0,50})|(embed\/[a-zA-Z0-9]{0,50})))|(youtu.be\/{0,50})/.test(args.join(''))) {
+        /**
+         * @type {SongObject}
+         */
+        const song = {
+          kind: 'youtube#searchResult',
+          etag: undefined,
+          id: {
+            kind: 'youtube#video',
+          },
+          snippet: {
+            thumbnails: {
+              default: {},
+              medium: {},
+              high: {},
+            },
+          },
+        };
+        const songData = await ytdl.getBasicInfo(args.join(''));
+        song.id.videoId = songData.video_id;
+        song.snippet.publishedAt = songData.published;
+        song.snippet.channelId = songData.author.id;
+        song.snippet.title = songData.title;
+        song.snippet.description = songData.description;
+        song.snippet.thumbnails.default.url = songData.thumbnail_url;
+        song.snippet.thumbnails.medium.url = songData.thumbnail_url;
+        song.snippet.thumbnails.high.url = songData.thumbnail_url;
+        song.snippet.channelTitle = songData.author.user;
+        song.snippet.liveBroadcastContent = undefined;
+        song.snippet.publishTime = undefined;
+        song.time = songData.length_seconds*1000;
+        song.request = message.member;
+
+        player.queue.push(song);
+        player.type = 'player';
+        let allTime = 0;
+        player.queue.map(v => allTime = allTime + v.time/1000);
+        const addQueueEmbed = new MessageEmbed()
+            .setTitle(`Add music in playlist`)
+            .setDescription(song.snippet.title)
+            .addFields(
+                {name: 'Song time', value: `${corePlayer.parseSeconde(song.time/1000)}`, inline: true},
+                {name: 'Playlist time', value: `${corePlayer.parseSeconde(allTime)}`, inline: true},
+            )
+            .setThumbnail(song.snippet.thumbnails.high.url);
+        message.channel.send({embed: addQueueEmbed});
+        if (player.queue.length > 1) {
+          if (!player.dispatcher) {
+              corePlayer.play(client, message);
+          };
+        } else {
+          if (player.queue.length <= 1) {
+            player.index = 0;
+          };
+          corePlayer.play(client, message);
+        };
+        return;
+      };
 
       const youtube = await corePlayer.getSongs(args.join(' '));
       if (youtube.error) return message.channel.send(youtube.error.message, {code: 'js'});
