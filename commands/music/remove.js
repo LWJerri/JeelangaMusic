@@ -15,14 +15,13 @@ module.exports = {
     guildOnly: true,
     enabled: true,
     execute: async function(client, message, args) {
-        if (!message.member.voice.channel) return message.reply('💢');
-        const index = parseInt(args.join(' '))-1;
+        const index = parseInt(args.join(''))-1;
         const player = corePlayer.initPlayer(client, message.guild.id);
         if (!player.dispatcher) return message.channel.send(`I don't play a music`);
-        if (!index || isNaN(index)) {
+        if (isNaN(index)) {
             return message.channel.send(`You must enter a number value !`);
         };
-        if (index > player.queue.length - 1) return message.react('💢');
+        if (index > player.queue.length - 1) return message.channel.send('Please enter a valide number ');
         if (!corePlayer.hasPermission(client, message)) {
             const call = await corePlayer.callRequest(message, new MessageEmbed(), {
                 required: `Require {{mustVote}} votes for remove ${player.queue[index].snippet.title}`,
@@ -32,13 +31,15 @@ module.exports = {
             if (call) {
                 if (!player.dispatcher) return message.channel.send(`I don't play a music`);
                 if (player.index > index) player.index--;
-                player.queue.splice(args.join('', 1));
+                player.queue.splice(index, 1);
+                message.channel.send(`Song removed to playlist`)
             } else {
                 return message.channel.send(`You don't set stream to resume`);
             };
         } else {
             if (player.index > index) player.index--;
-            player.queue.splice(args.join('', 1));
+            player.queue.splice(index, 1);
+            message.channel.send(`Song removed to playlist`)
         };
     },
 };
