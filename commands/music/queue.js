@@ -36,12 +36,13 @@ module.exports = {
             _i++;
             if (packet.length < 1) {
                 packet.push([song]);
-            };
-            if ((packet[i].map((v, i) => `[${i + 1}] ${v.snippet.title} - request by ${v.request}`).join('\n') + `[0] ${song.snippet.title} - request by ${song.request}`).length >= 2048) {
-                i++;
-                packet.push([song]);
             } else {
-                packet[i].push(song);
+                if ((packet[i].map((v, i) => `[${i + 1}] ${v.snippet.title} - request by ${v.request}`).join('\n') + `[0] ${song.snippet.title} - request by ${song.request}`).length >= 2048) {
+                    i++;
+                    packet.push([song]);
+                } else {
+                    packet[i].push(song);
+                };
             };
         };
 
