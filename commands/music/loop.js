@@ -15,9 +15,8 @@ module.exports = {
     guildOnly: true,
     enabled: true,
     execute: async function (client, message, args) {
-        if (!message.member.voice.channel) return message.reply('💢');
+        if (!corePlayer.hasPermission(client, message)) return message.reply('💢');
         const player = corePlayer.initPlayer(client, message.guild.id);
-        if (!player.dispatcher) return message.channel.send(`I don't play a music`);
         if (!corePlayer.hasPermission(client, message)) {
             const call = await corePlayer.callRequest(message, new MessageEmbed(), {
                 required: `Require {{mustVote}} votes for loop stream`,
@@ -25,7 +24,6 @@ module.exports = {
                 content: `Vote {{haveVoted}}/{{mustVote}}`,
             });
             if (call) {
-                if (!player.dispatcher) return message.channel.send(`I don't play a music`);
                 switch (args.join('')) {
                     case 'off':
                         player.loop = 'off';
