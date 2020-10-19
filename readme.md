@@ -1,5 +1,5 @@
 # mika
-[![GitHub license](https://img.shields.io/github/license/Shaynlink/mika.svg)](https://github.com/Shaynlink/mika/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Shaynlink/mika/total.svg)](https://GitHub.com/Shaynlink/mika/releases/) [![GitHub stars](https://img.shields.io/github/stars/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/stargazers/) [![GitHub watchers](https://img.shields.io/github/watchers/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/watchers/) [![GitHub issues](https://img.shields.io/github/issues/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/mika/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/Shaynlink/mika.svg)](https://GitHub.com/Shaynlink/node-anemy/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub license](https://img.shields.io/github/license/LWJerri/mika.svg)](https://github.com/LWJerri/mika/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/LWJerri/mika/total.svg)](https://GitHub.com/LWJerri/mika/releases/) [![GitHub stars](https://img.shields.io/github/stars/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/stargazers/) [![GitHub watchers](https://img.shields.io/github/watchers/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/watchers/) [![GitHub issues](https://img.shields.io/github/issues/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/LWJerri/mika.svg)](https://GitHub.com/LWJerri/node-anemy/issues?q=is%3Aissue+is%3Aclosed)[![Run on Repl.it](https://repl.it/badge/github/LWJerri/mika)](https://repl.it/github/LWJerri/mika)
 
 Mika is a simple Discord bot for music
 
@@ -21,23 +21,23 @@ prefix: **m!**
 | seek | set seek |
 
 #### play
-[![exemple play](https://github.com/Shaynlink/mika/blob/master/assets/exemple/mika-exemple-1.png)](https://github.com/Shaynlink/mika)
+[![exemple play](https://github.com/LWJerri/mika/blob/master/assets/exemple/mika-exemple-1.png)](https://github.com/LWJerri/mika)
 
 #### nowplaying
-[![exemple play](https://github.com/Shaynlink/mika/blob/master/assets/exemple/mika-exemple-2.png)](https://github.com/Shaynlink/mika)
+[![exemple play](https://github.com/LWJerri/mika/blob/master/assets/exemple/mika-exemple-2.png)](https://github.com/LWJerri/mika)
 
 #### help
-[![exemple play](https://github.com/Shaynlink/mika/blob/master/assets/exemple/mika-exemple-3.png)](https://github.com/Shaynlink/mika)
+[![exemple play](https://github.com/LWJerri/mika/blob/master/assets/exemple/mika-exemple-3.png)](https://github.com/LWJerri/mika)
 
 ## Install
 
 ```sh
-git clone https://github.com/Shaynlink/mika.git
+git clone https://github.com/LWJerri/mika.git
 cd mika
 npm install
 ```
 
-create [credentials.js](https://github.com/Shaynlink/mika/blob/master/credentials.js) and change DISCORD_TOKEN value by the token of your bot, and YOUTUBE_TOKEN value by your Youtube Data v3 API KEY.
+create [credentials.js](https://github.com/LWJerri/mika/blob/master/credentials.js) and change DISCORD_TOKEN value by the token of your bot, and YOUTUBE_TOKEN value by your Youtube Data v3 API KEY.
 
  - discord token: https://discord.com/developers/applications
  - youtube token: https://developers.google.com/youtube/v3/getting-started#before-you-start
