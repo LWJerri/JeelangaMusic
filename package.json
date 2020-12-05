@@ -4,14 +4,13 @@
   "description": "[![GitHub license](https://img.shields.io/github/license/LWJerri/mika.svg)](https://github.com/LWJerri/mika/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/LWJerri/mika/total.svg)](https://GitHub.com/LWJerri/mika/releases/) [![GitHub stars](https://img.shields.io/github/stars/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/stargazers/) [![GitHub watchers](https://img.shields.io/github/watchers/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/watchers/) [![GitHub issues](https://img.shields.io/github/issues/LWJerri/mika.svg)](https://GitHub.com/LWJerri/mika/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/LWJerri/mika.svg)](https://GitHub.com/LWJerri/node-anemy/issues?q=is%3Aissue+is%3Aclosed)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LWJerri/mika.git"
   },
-  "author": "LWJerri <me@LWJerri.fr> (https://ohori.me)",
+  "author": "LWJerri and Shaynlink",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LWJerri/mika/issues"
@@ -19,14 +18,14 @@
   "homepage": "https://github.com/LWJerri/mika#readme",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
-    "axios": "^0.19.2",
-    "discord.js": "^12.2.0",
+    "axios": "^0.21.0",
+    "discord.js": "^12.5.1",
     "express": "^4.17.1",
-    "ffmpeg": "0.0.4",
+    "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.2.4",
     "html-entities-decoder": "^1.0.0",
     "klaw": "^3.0.0",
-    "moment": "^2.27.0",
-    "ytdl-core": "^2.1.7"
+    "moment": "^2.29.1",
+    "ytdl-core": "^4.1.2"
   }
 }
