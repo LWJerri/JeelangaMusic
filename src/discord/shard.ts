@@ -24,7 +24,7 @@ export default function DiscordBoot() {
             console.warn(`[SHARD ${shard.id}]: Shard disconnected!`)
         );
 
-        shard.on("error", (err) =>
+        shard.on("error", (err: any) =>
             console.error(`[SHARD ${shard.id}]: Shard error: `, err)
         );
 
@@ -40,13 +40,42 @@ export default function DiscordBoot() {
             console.log(`[SHARD ${shard.id}]: Shard spawned!`)
         );
 
-        shard.on("message", (msg) =>
-            console.log(`[SHARD ${shard.id}]: ${msg}`)
+        shard.on("message", (msg: any) =>
+            console.log(`[SHARD ${shard.id}]: `, msg)
         );
     });
 
+    // Take from "github.com/Satont/channelsbot".
+    const BotStatusUpdate = async () => {
+        const [guilds, members] = await Promise.all([
+            shardGenerator.fetchClientValues("guilds.cache.size"),
+            shardGenerator.broadcastEval(
+                "this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)"
+            ),
+        ]);
+
+        const totalGuilds = guilds.reduce(
+            (acc, guildCount) => acc + guildCount,
+            0
+        );
+
+        const totalMembers = members.reduce(
+            (acc, memberCount) => acc + memberCount,
+            0
+        );
+
+        shardGenerator.broadcastEval(
+            `this.user.setPresence({ activity: { type: "WATCHING", name: '${totalMembers} users and ${totalGuilds} guilds!' }, status: "DND" })`
+        );
+    };
+
+    setInterval(() => BotStatusUpdate(), 60 * 1000);
+
     shardGenerator
         .spawn("auto")
-        .then(() => console.log(`[SHARD SPAWNER]: Shard spawned!`))
-        .catch((err) => console.error(`[SHARD ERROR]:`, err));
+        .then(() => {
+            BotStatusUpdate();
+            console.log(`[SHARD SPAWNER]: Shard spawned!`);
+        })
+        .catch((err) => console.error(`[SHARD ERROR]: `, err));
 }
