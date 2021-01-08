@@ -1,5 +1,5 @@
 {
-    "watch": ["./src/", "./localization"],
-    "exec": "ts-node ./src/app.ts",
+    "watch": ["./src/", "./settings.json", "./localization"],
+    "exec": "npm run postdev",
     "ext": "ts, json"
 }
