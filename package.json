@@ -12,7 +12,7 @@
     "author": "LWJerri",
     "license": "MIT",
     "dependencies": {
-        "discord.js": "^12.5.1",
+        "discord.js": "^12.5.2",
         "fs": "^0.0.1-security",
         "lodash": "^4.17.20",
         "nodemon": "^2.0.7",
