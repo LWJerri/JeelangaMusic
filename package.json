@@ -10,16 +10,9 @@
     "engines": {
         "node": "12"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/LWJerri/mika.git"
-    },
+    "repository": "https://github.com/Jeelanga/JeelangaMusic",
     "author": "LWJerri (lwjerri.js.org)",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/LWJerri/mika/issues"
-    },
-    "homepage": "https://github.com/LWJerri/mika#readme",
     "dependencies": {
         "@discordjs/opus": "^0.3.3",
         "axios": "^0.21.1",
