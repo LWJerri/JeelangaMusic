@@ -53,7 +53,8 @@ module.exports = {
 
     let index = 0;
 
-    const des = (_index = index) => packet[_index].map((v) => `[${v.i + 1}] ${v.snippet.title} - request by ${v.request}`).join("\n");
+    const des = (_index = index) =>
+      packet[_index].map((v) => `[${v.i + 1}] ${v.snippet.title} - request by ${v.request}`).join("\n");
 
     const msg = await message.channel.send({
       embed: new MessageEmbed()

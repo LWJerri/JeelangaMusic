@@ -30,5 +30,7 @@ module.exports = (client) => {
     });
   });
 
-  app.listen(client.config.port, "0.0.0.0", () => console.log(`server listening on http://localhost:${client.config.port}`));
+  app.listen(client.config.port, "0.0.0.0", () =>
+    console.log(`server listening on http://localhost:${client.config.port}`),
+  );
 };

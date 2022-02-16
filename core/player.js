@@ -82,7 +82,11 @@ module.exports.hasPermission = function (client, message) {
  */
 module.exports.getSongs = async function (query) {
   return await axios
-    .get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=${credentials.YOUTUBE_TOKEN}&q=${encodeURI(query)}`)
+    .get(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&key=${
+        credentials.YOUTUBE_TOKEN
+      }&q=${encodeURI(query)}`,
+    )
     .then((response) => response.data)
     .catch((error) => error);
 };
