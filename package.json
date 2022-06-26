@@ -14,25 +14,25 @@
   "author": "LWJerri (lwjerri.js.org)",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.3.3",
-    "axios": "^0.21.1",
-    "discord.js": "^12.5.2",
-    "express": "^4.17.1",
+    "@discordjs/opus": "^0.7.0",
+    "axios": "^0.27.2",
+    "discord.js": "^13.8.1",
+    "express": "^4.18.1",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^4.3.0",
-    "html-entities-decoder": "^1.0.0",
-    "klaw": "^3.0.0",
-    "moment": "^2.29.1",
-    "source-map-support": "^0.5.19",
-    "ytdl-core": "^4.5.0"
+    "ffmpeg-static": "^5.0.0",
+    "html-entities-decoder": "^1.0.2",
+    "klaw": "^4.0.1",
+    "moment": "^2.29.3",
+    "source-map-support": "^0.5.21",
+    "ytdl-core": "^4.11.0"
   },
   "devDependencies": {
-    "@types/node": "^15.0.1",
-    "@types/source-map-support": "^0.5.3",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
+    "@types/node": "^18.0.0",
+    "@types/source-map-support": "^0.5.4",
+    "nodemon": "^2.0.18",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
   }
 }
