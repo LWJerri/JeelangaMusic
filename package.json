@@ -14,7 +14,7 @@
   "author": "LWJerri (lwjerri.js.org)",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.7.0",
+    "@discordjs/opus": "^0.9.0",
     "axios": "^0.27.2",
     "discord.js": "^13.8.1",
     "express": "^4.18.1",
