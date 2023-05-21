@@ -27,7 +27,7 @@
     "ytdl-core": "^4.11.0"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.2.3",
     "@types/source-map-support": "^0.5.4",
     "nodemon": "^2.0.18",
     "prettier": "^2.7.1",
